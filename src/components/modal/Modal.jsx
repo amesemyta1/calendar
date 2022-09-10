@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import './modal.scss';
 
-class Modal extends Component {
-  render() {
+const Modal = ({ handleChange }) => {
     return (
       <div className="modal overlay">
         <div className="modal__content">
@@ -22,7 +21,7 @@ class Modal extends Component {
                   type="time"
                   name="startTime"
                   className="event-form__field"
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                 />
                 <span>-</span>
                 <input
@@ -37,7 +36,7 @@ class Modal extends Component {
                 className="event-form__field"
               ></textarea>
               <button type="submit" className="event-form__submit-btn">
-                Create
+                Создать
               </button>
             </form>
           </div>
@@ -45,6 +44,5 @@ class Modal extends Component {
       </div>
     );
   }
-}
 
 export default Modal;
