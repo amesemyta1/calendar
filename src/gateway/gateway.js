@@ -1,6 +1,6 @@
 const baseUrl = 'https://62dacf26e56f6d82a76a312f.mockapi.io/api/v1/tasks';
 
-export const formatNewEvent = (eventInput) => {
+export const formatNewEvent = eventInput => {
   const { title, date, startTime, endTime, description } = eventInput;
   const newEvent = {
     title,
@@ -11,7 +11,7 @@ export const formatNewEvent = (eventInput) => {
   return newEvent;
 };
 
-export const postEvent = (eventData) =>
+export const postEvent = eventData =>
   fetch(baseUrl, {
     method: 'POST',
     headers: {
@@ -19,25 +19,25 @@ export const postEvent = (eventData) =>
     },
     body: JSON.stringify(eventData),
   })
-    .then((response) => {
+    .then(response => {
       if (!response.ok) {
         throw new Error("Internal Server Error. Can't display events");
       }
     })
-    .catch((error) => {
+    .catch(error => {
       alert(error.message);
     });
 
-export const getEvent = (setFn) =>
+export const getEvent = setFn =>
   fetch(baseUrl)
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
         return response.json();
       }
       throw new Error("Internal Server Error. Can't display events");
     })
-    .then((eventData) => {
-      const updEventsList = eventData.map((event) => ({
+    .then(eventData => {
+      const updEventsList = eventData.map(event => ({
         ...event,
         dateFrom: new Date(event.dateFrom),
         dateTo: new Date(event.dateTo),
@@ -45,24 +45,22 @@ export const getEvent = (setFn) =>
 
       setFn(updEventsList);
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       console.log(error.message);
       console.dir(error);
     });
 
-export const fetchDelete = (id) => {
+export const fetchDelete = id => {
   return fetch(`${baseUrl}/${id}`, {
     method: 'DELETE',
   })
-    .then((response) => {
+    .then(response => {
       if (!response.ok) {
-        throw new Error(
-          "Internal Server Error. Can't display events in fetchDelete"
-        );
+        throw new Error("Internal Server Error. Can't display events in fetchDelete");
       }
     })
-    .catch((error) => {
+    .catch(error => {
       alert(error.message);
       console.log(error.message);
     });
