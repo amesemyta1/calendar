@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { months } from '../../utils/dateUtils.js';
-import Modal from '../modal/Modal';
 
 import './header.scss';
 

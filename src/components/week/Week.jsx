@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Day from '../day/Day';
 import moment from 'moment';
 import RedLine from '../redLine/RedLine';
@@ -29,11 +28,5 @@ const Week = ({ weekDates, events, deleteEventHandler }) => (
       })}
     </div>
 );
-
-Week.propTypes = {
-  weekDates: PropTypes.array.isRequired,
-  events: PropTypes.array.isRequired,
-  deleteEventHandler: PropTypes.func.isRequired,
-};
 
 export default Week;

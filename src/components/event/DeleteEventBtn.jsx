@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const DeleteEventBtn = ({ id, deleteEventHandler }) => {
   return (
@@ -15,8 +14,5 @@ const DeleteEventBtn = ({ id, deleteEventHandler }) => {
     </button>
   );
 };
-DeleteEventBtn.propTypes = {
-  id: PropTypes.string.isRequired,
-  deleteEventHandler: PropTypes.func.isRequired,
-};
+
 export default DeleteEventBtn;
