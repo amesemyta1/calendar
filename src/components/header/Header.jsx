@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { months } from '../../utils/dateUtils.js';
+import Modal from '../modal/Modal';
 
 import './header.scss';
 
-const Header = ({ lastWeek, nextWeek, nowWeek, nowMonth }) => {
+const Header = ({ lastWeek, nextWeek, nowWeek, nowMonth, modalBtnEvent }) => {
   
   return (
     <header className="header">
-      <button className="button create-event-btn">
+      <button className="button create-event-btn" onClick={modalBtnEvent}>
         <i className="fas fa-plus create-event-btn__icon"></i>Создать
       </button>
       <div className="navigation">
